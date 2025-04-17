@@ -11,7 +11,6 @@
 ;;! (import! &self experiments:rules:emp-prob-pbs)
 
 
-
 ;; Calculate the empirical probability of pattern, using
 ;; boostrapping if necessary
 (=(emp_prob_pbs_mem $subpattern $db  $db_ratio) )
@@ -33,14 +32,24 @@
 ;; assuming all blocks are independent, but takes into account the
 ;; joint variables (ji_prob_est stands for joint-independent
 ;; probability estimate).
-(=(ji-prob-est $partition $pattern $db $db_ratio) (
-     let $p (pro-prob-wout-joint $partition $db $db_ratio 1)
-            ; (let $eq_prob (prob-with-joint $db (db_size $db) (remove-parenthesis $partition) (joint-variables-init $pattern (remove-parenthesis $partition)) 1)
-             (let $eq_prob (eq-prob-py $partition $pattern (db-size $db))  
-             (* $p $eq_prob)))
-             )
+; (=(ji-prob-est $partition $pattern $db $db_ratio) (
+;      let $p (pro-prob-wout-joint $partition $db $db_ratio 1)
+;             (let $eq_prob (prob-with-joint $db (db_size $db) (remove-parenthesis $partition) (joint-variables-init $pattern (remove-parenthesis $partition)) 1)
+             
+;              (* $p $eq_prob)))
+;              )
 
+(= (ji-prob-est $partition $pattern $db $db_ratio) (let* 
+( 
+  
+  ($p (pro-prob-wout-joint $partition $db $db_ratio 1))
+  ($db-size (db_size $db))
+  ($eq_prob (eq-prob-py $partition $pattern $db-size))
+  )
+  (* $p $eq_prob)
 
+)
+)
 
 
 ; (=(do-ji-prob $partitions $pattern $db $db_ratio) (
@@ -94,8 +103,6 @@
              ($maxprb (max ($emp $emax))))
                (min ((if $normalize (// $dst $maxprb) $dst) 1.0))
 ))
-
-
 
 
 
