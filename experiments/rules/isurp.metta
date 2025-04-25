@@ -13,7 +13,7 @@
 
 ;; Calculate the empirical probability of pattern, using
 ;; boostrapping if necessary
-(=(emp_prob_pbs_mem $subpattern $db  $db_ratio) )
+; (=(emp_prob_pbs_mem $subpattern $db  $db_ratio) )
 
 
 ;; Calculate the product of the probability over subpatterns
@@ -21,11 +21,13 @@
 (=(pro-prob-wout-joint $subpatterns $db $db_ratio $p) (
   if (== $subpatterns ()) $p (
     let* ((($subpattern $tail) (decons-atom $subpatterns))
-           ($empr (emp-prob-pbs  (remove-parenthesis $subpattern) $db  $db_ratio))
+           ($empr (emp-prob (cons-atom , $subpattern) $db ))
+           (() (println!  (wout--  $subpatterns $empr))) 
            ($new_prob (* $p $empr)))
        (pro-prob-wout-joint $tail $db $db_ratio $new_prob)
   )
 ))
+
 
 
 ;; Calculate probability estimate of a pattern given a partition,
@@ -40,14 +42,20 @@
 ;              )
 
 (= (ji-prob-est $partition $pattern $db $db_ratio) (let* 
+
 ( 
-  
+  ($_ (println! (partion is $partition)))
+
   ($p (pro-prob-wout-joint $partition $db $db_ratio 1))
+
+  ($_ (println! (p is $p)))
+
+
   ($db-size (db_size $db))
   ($eq_prob (eq-prob-py $partition $pattern $db-size))
   )
-  (* $p $eq_prob)
 
+  (* $p $eq_prob)
 )
 )
 
