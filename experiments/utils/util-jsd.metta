@@ -7,7 +7,13 @@
 (= (confidence (Pr $smt)) 1.0)
 (= (confidence ($type $mean $conf)) $conf)
 
-(: strength (-> TruthValue Number))
+
+; (: Other Type)
+; (: Bl (-> $a Other))
+; (: Pr (-> $a Other))
+; (: strength (-> TruthValue Number))
+; (: strength (-> Other Number))
+
 (= (strength (Bl $smt)) 0)
 (= (strength (Pr $smt)) 0)
 (= (strength ($type $strg $conf)) $strg)

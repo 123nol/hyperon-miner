@@ -14,6 +14,7 @@
 ! (import! &self experiments:surprisingness:emp-prob)
 ! (import! &kb experiments:data:ugly_man_sodaDrinker)
 ! (import! &self experiments:utils:binomialMetta)
+! (import! &self experiments:utils:customTypes)
 
 ! (import! &self experiments:utils:eq_prob_adaptor)
 
@@ -180,4 +181,4 @@
 
 !(assertEqual (isurp (, (Inheritance $x man) (Inheritance $x ugly) (Inheritance $x sodaDrinker) ) &kb True 0.2) 0.8684478436521119)
 
-(isurp (, (Inheritance $x man) (Inheritance $x ugly) (Inheritance $x sodaDrinker) ) &kb True 0.2)
+; (isurp (, (Inheritance $x man) (Inheritance $x ugly) (Inheritance $x sodaDrinker) ) &kb True 0.2)

@@ -2,7 +2,19 @@
 -----------------------------------------------------------------
 ;; abstract patterns 
 -----------------------------------------------------------------
+
+(: abstract (-> Deb SpaceType Any))
+(: specialization (-> Deb SpaceType Any))
+(: support (-> Deb SpaceType Number))
+(:candidate (-> Deb SpaceType Any))
+(:conjunction (-> Deb SpaceType Number Number Any))
+(:format (-> Deb SpaceType Any))
+(: frequent-miner (-> SpaceType SpaceType Number Any))
+
 ;; extracts abstract patterns from the db
+
+
+
 (= (abstract $depth $kb)
    (let* (
     (() (println! "==== Extracting abstract patterns =====") )
@@ -18,6 +30,8 @@
 ;; specialization
 --------------------------------------------------
 ;;Generates the specializations of the abstract patterns
+
+
 (= (specialization $depth $kb)
 
    (let* (
@@ -34,6 +48,8 @@
 ;; support 
 -------------------------------------------------
 ;; Annotate the support of specialized patterns
+
+
 (= (support $depth $kb)
    (let* (
     (() (println! "==== Computing support =====") )
@@ -49,6 +65,7 @@
 ;; candidate
 -----------------------------------------------
 ;; select patterns with min-sup as candidate pattern
+
 (= (candidate $depth $kb)
    (let*(
     (() (println! "==== Selecting Candidate Patterns =====") )
@@ -64,6 +81,7 @@
 ;; conjunction
 ---------------------------------------------------
 ;; expand conjunctions for as many clauses as needed
+
 (= (conjunction $depth $kb $rec $maxrec) 
     (let*
         (
@@ -82,6 +100,8 @@
 ;; format
 ------------------------------------------------------
 ;;format the patterns and add them to the knowledge base with their support
+
+
 (= (format $depth $kb)
    (collapse 
    (let*(
@@ -99,6 +119,7 @@
 ;; frequent-miner
 --------------------------------------------------
 ;; pipeline for the frequent patter mining 
+
 (= (frequent-miner $db $kb $number-of-conjuct) 
 ( 
      let*  ( 

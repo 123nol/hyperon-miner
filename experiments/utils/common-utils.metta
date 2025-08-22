@@ -1,3 +1,5 @@
+
+
 ;;;;;;;;;;;;;;;;;;
 ;; Common Utils ;;
 ;;;;;;;;;;;;;;;;;;
@@ -388,7 +390,7 @@ let* ( ($pattern (cons-atom , $blks)) ($dummy (add-atom $db $pattern))) $pattern
 ;; -----------------------------------------------------------------------------
 ;; Purpose:
 ;;   Recursively checks if `$atom` exists anywhere in `$list`, including nested sublists.
-;;   Returns a boolean (True/False) indicating presence.
+;;   Returns a Bool (True/False) indicating presence.
 ;;
 ;; Inputs:
 ;;   - `$atom`: The element to search for (any atomic value).
@@ -765,7 +767,7 @@ let* ( ($pattern (cons-atom , $blks)) ($dummy (add-atom $db $pattern))) $pattern
 
  ;; Evaluate if the pattern has enough support
  ;; Evaluate if the pattern has enough support
-; (: sup-eval (-> hyperon::space::DynSpace Atom Number Boolean))
+; (: sup-eval (-> hyperon::space::DynSpace Atom Number Bool))
 
 (= (sup-eval $db $pattern $ms)
     (let $sup (counter $db $pattern)
@@ -788,7 +790,7 @@ let* ( ($pattern (cons-atom , $blks)) ($dummy (add-atom $db $pattern))) $pattern
 )
 
  ;Check if expression is truth value or not
-(: cog-tv? (-> Atom Boolean))
+(: cog-tv? (-> Atom Bool))
 (= (cog-tv? $EXP)
     (if (== (match &self (stv $value $mean $conf) True) True)
         True
@@ -860,7 +862,7 @@ let* ( ($pattern (cons-atom , $blks)) ($dummy (add-atom $db $pattern))) $pattern
 ;;   - Collapses the list of atoms to a simpler form.
 ;;   - Uses tuple-count to determine the number of atoms.
  ;;db size
-;(: db_size (-> SpaceType  Number))
+; (: db_size (-> SpaceType  Number))
 (= (db_size $db)
      (tuple-count (collapse (get-atoms $db)))
     
@@ -877,8 +879,8 @@ let* ( ($pattern (cons-atom , $blks)) ($dummy (add-atom $db $pattern))) $pattern
 
 
 
- ;; equals-to-zero  accepts a Number and compares it with zero if it is equals to zero it returns a boolean value True else False
-(: equals-to-zero (-> Number Boolean))
+ ;; equals-to-zero  accepts a Number and compares it with zero if it is equals to zero it returns a Bool value True else False
+(: equals-to-zero (-> Number Bool))
 (= (equals-to-zero $x) (== $x 0))
 
  ;; classify_integer_position function accepts a Number and returns a strings that tells if a number is Greater than zero equal to zero or less than zero

@@ -11,6 +11,15 @@
 ;;! (import! &self experiments:rules:emp-prob-pbs)
 
 
+
+(: emp_prob_pbs_mem (-> Pattern SpaceType Number Number))
+; (: pro-prob-wout-joint (-> (List Pattern) SpaceType Number Number Number))
+; (: ji-prob-est (-> (List Pattern) Pattern SpaceType Number Number))
+; (: do-ji-prob (-> (MList Pattern)) Pattern SpaceType Number (List Number))
+(: ji_prob_est_interval (-> Pattern SpaceType Number Any))
+(: isurp (-> Pattern SpaceType Bool Number Number))
+
+
 ;; Calculate the empirical probability of pattern, using
 ;; boostrapping if necessary
 (=(emp_prob_pbs_mem $subpattern $db  $db_ratio) 0.4)
@@ -108,6 +117,7 @@
   
   ($p (pro-prob-wout-joint $partition $db $db_ratio 1))
   ($db-size (db_size $db))
+  ; ($eq_prob (eq-prob-py $partition $pattern $db-size))
   ($eq_prob (eq-prob-py $partition $pattern $db-size))
   )
   (* $p $eq_prob)

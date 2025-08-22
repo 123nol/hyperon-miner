@@ -6,6 +6,12 @@
 ! (import! &self freq-pat)
 
 
+(: depth-handler (-> Pattern Pattern))
+(: build-specialization (-> Pattern SpaceType SpaceType Any))
+(: build-specialization-new (-> SpaceType SpaceType SpaceType Any))
+(: build-specialization-chain (-> Pattern SpaceType Any))
+
+
 ; function name: depth-handler
                 ; function to handle the depth of the pattern
 

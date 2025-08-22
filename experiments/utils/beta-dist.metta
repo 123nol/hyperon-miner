@@ -1,3 +1,21 @@
+; (: beta_mean (-> Number Number Number))
+; (: beta_var (-> Number Number Number))
+; (: beta_mode (-> Number Number Number))
+
+; (: mk_distribution (-> TruthValue Tuple))
+; ; (: mk_distribution_list (-> (List TruthValue) (List Tuple)))
+; ; (: mean_accumulater (-> (List Tuple) Number Number))
+; ; (: var_accumulater (-> (List Tuple) Number Number Number))
+; (: mk_stv (-> Number Number TruthValue))
+; (: get_beta_mean_var (-> Tuple Symbol Number))
+; ; (: avrg_tv (-> (List TruthValue) TruthValue))
+; (: confidence->count (-> Number Number))
+; (: count->confidence (-> Number Number))
+; (: find_alpha (-> Number Number Number))
+; (: find_beta (-> Number Number Number))
+
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Beta distributions from URE ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

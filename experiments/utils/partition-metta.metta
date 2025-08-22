@@ -5,7 +5,7 @@
 )
 
 
-Generates all subsets (the powerset) of a given list
+; Generates all subsets (the powerset) of a given list
 ;; Example:  (powerset (a b)) → (() (b) (a) (a b))
 
 (= (powerset $lst)
@@ -109,8 +109,8 @@ Generates all subsets (the powerset) of a given list
 ;;   Used in probability estimation, pattern decomposition, or symbolic reasoning
 ;;   tasks where exhaustive enumeration of all disjoint covers is required.
 ;; ==============================================================================
-(:partitions (-> list_of_patterns partitions))
 
 
+; (:partitions (-> (List Pattern) (PList Pattern)))
 (=(partitions $original) (partitions (powerset $original) $original))
 !(partitions ((Inheritance $x man) (Inheritance $x sodaDrinker) (Inheritance $x ugly)))

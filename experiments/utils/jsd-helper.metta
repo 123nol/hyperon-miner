@@ -1,5 +1,24 @@
 ! (import! &self boost)
 
+; (: mk_distribution_jsd (-> TruthValue BetaValue))
+; ; (: beta_cdf (-> BetaValue Number (List Number)))
+; ; (: beta_cdf_loop (-> BetaValue Number Number (List Number) (List Number)))
+; (: boost_math_cdf (-> BetaValue Number Number))
+; (: boost-math-cdf (-> Number Number Number Number))
+; ; (: kld (-> (List Number) (List Number) Number))
+; ; (: kld_loop (-> (List Number) (List Number) Number Number Number Number Number Number))
+; (: log2 (-> Number Number))
+; ; (: avrg_cdf (-> (List Number) (List Number) (List Number)))
+; ; (: avrg_cdf_loop (-> (List Number) (List Number) (List Number) (List Number)))
+; (: avrg (-> Number Number Number))
+; ; (: reverse-list (-> (List Number) (List Number)))
+
+
+
+
+
+
+
 
 ;; Create Beta Distribution from TruthValue (mean, confidence)
 ;; Equivalent to constructing boost::math::beta_distribution using mean and count.
@@ -41,6 +60,10 @@
 ))
 
 ;; Adapter to extract (alpha, beta) from Beta distribution and evaluate CDF
+
+;===================
+;something wrong in the number of arguments its passing
+;====================
 (=(boost_math_cdf $beta_dist $x)(
     let (Beta $alpha $beta) $beta_dist
     (boost-math-cdf $alpha $beta $x)  ;; Calls your math backend for Beta(alpha, beta)

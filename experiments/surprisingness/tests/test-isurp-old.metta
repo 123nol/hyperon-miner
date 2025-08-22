@@ -10,6 +10,7 @@
 ! (import! &self experiments:utils:gen_partition)
 ! (import! &self experiments:truth-values:est-tv)
 ! (import! &self experiments:surprisingness:isurp-old)
+! (import! &self experiments:utils:customTypes)
 
 ! (import! &db experiments:data:ugly_man_sodaDrinker)
 

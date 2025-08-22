@@ -201,7 +201,7 @@
 ;;   4. For each block after the first, find most specialized abstract block
 ;;   5. Calculate probability based on value counts
 ;; =============================================================================
-(: eq-prob (-> Expression Expression Expression Number))
+; (: eq-prob (-> Expression Expression Expression Number))
 (= (eq-prob $partition $pattern $db)
     (let $joint-vars (joint-variables $pattern $partition)
         (calculate-prob-for-vars $joint-vars $partition $db 1.0)))
@@ -454,7 +454,7 @@
 
 
 
-; (= (eq-prob $partition $pattern $db)
+; (= (eq-prob $partition $pattern $db))
 ; !(can-unify ((Inheritance $x human) (Inheritance Rio $y)) ((Inheritance Abe $y)))
 ; !(can-unify ((Inheritance $x human))  ((Inheritance $x human)))
 

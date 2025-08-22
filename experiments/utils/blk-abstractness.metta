@@ -1,4 +1,23 @@
 
+; (: erase (-> Pattern Variable Pattern))
+; (: replace-var (-> Pattern Variable Constant Pattern))
+; (: replace-var-exp (-> Pattern Variable Constant Pattern))
+; (: sub-var (-> Any Variable Constant Any))
+; (: var-exist-exp (-> Pattern Variable Bool))
+; (: is-var-exist (-> Pattern Variable Bool))
+; (: can-unify (-> Pattern Pattern Bool))
+; (: can-unify-expr (-> Pattern Pattern Bool))
+; (: can-unify-ground (-> Any Any Bool))
+; (: validate-unification (-> Pattern Pattern Bool))
+; (: is-blk-syntax-more-abstract (-> Pattern Pattern Variable Bool))
+; (: is-blk-more-abstract (-> Pattern Pattern Variable Bool))
+; ; (: check-partitions (-> (PList Pattern) (BList Pattern) Variable Bool))
+; ; (: check-subsets (-> (BList Pattern) (BList Pattern) Variable Bool))
+; ; (: check-all-blocks (-> (List Pattern) Pattern Variable Bool))
+; (: is-membership (-> Any Pattern Bool))
+; (: merge-list (-> Pattern Pattern Pattern))
+; (: unique-list (-> Pattern Pattern))
+; (: uniq (-> Pattern Pattern Pattern))
 
 
 

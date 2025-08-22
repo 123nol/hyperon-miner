@@ -1,6 +1,9 @@
 ;; =============================================================================
 ;; Function: do-jsd
 ;; -----------------------------------------------------------------------------
+
+
+(: do-jsd (-> TruthValue TruthValue Number))
 ;; Purpose:
 ;;   Computes a modified Jensen-Shannon Divergence (JSD) between two probability 
 ;;   distributions. This is a symmetric measure of similarity between distributions 

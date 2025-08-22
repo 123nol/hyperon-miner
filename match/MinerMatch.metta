@@ -16,6 +16,14 @@
  ;!(import! &self ../utils/MinerUtils.metta)
 
 ;; Get candidate patterns depth zero
+
+(:get-candidate (-> Deb Any Number Number) )
+(:miner (-> SpaceType Number Deb Any))
+(:miner-surprising (-> SpaceType Number Deb Number Any))
+
+
+
+
 (= (get-candidate Z $linkType $ms)
     (let $sp (specialize $linkType)
       (support $sp $ms)))

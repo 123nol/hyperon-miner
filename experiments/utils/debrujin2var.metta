@@ -101,6 +101,7 @@ $varform
        
    )
 )
+(: full2-pattern2vars (-> Pattern Any Pattern))
 ;use this version cuz when we try to pass the list of variables within the body it acts wierd os its better to get the list from the user directly as argument
 (= (full2-pattern2vars $pattern $fixed-vars)
       (if (== (car-atom $pattern) ,)

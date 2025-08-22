@@ -1,3 +1,34 @@
+;===========================================
+
+(: expand_conjunction (-> Pattern Pattern SpaceType Number Number Bool Pattern))
+(: count-atom-element (-> Any Number))
+; (: get_variable_for_pattern (-> Pattern (List Variable)))
+; (: get_variables_for_tree (-> Pattern (List Variable)))
+; (: substitute (-> Pattern (List Variable) Pattern))
+; (: alpha_convert (-> (List Variable) (List Variable) (List Variable)))
+; (: address_conflict (-> (List Variable) (List Variable) (List  Variable)))
+; (: does_exist (-> Variable (List Variable) Bool))
+; (: consolidate_keys (-> (List Variable) (List Variable)))
+; (: consolidate_helper (-> (List Variable) (List Variable) (List Variable) (List Variable)))
+; (: get_value (-> Variable (List Variable) (List Variable)))
+; (: extract_values (-> (List Variable) (List Variable)))
+; (: extract_helper (-> (List Variable) (List Variable) (List Variable)))
+(: expand_conjunction_rec (-> Pattern Pattern SpaceType Number Any))
+; (: expand_conjunction_connect (-> Pattern Pattern (List Variable) (List Variable) Pattern))
+; (: replace_pattern (-> Pattern Pattern (List Variable) Pattern))
+(: checker (-> SpaceType Pattern Number Pattern))
+(: checker (-> SpaceType Pattern Number Any))
+; (: remove_alpha_similar (-> (List Pattern) (List Pattern)))
+; (: remove_alpha_similar_helper (-> (List Pattern) (List Pattern) (List Pattern)))
+; (: expand_conjunction_es_rec (-> Pattern Pattern SpaceType Number Any))
+(: remove_conjuncts_with_redundant_clauses (-> Pattern Any))
+; (: expand_conjunction_disconnect (-> Pattern Pattern (List Variable)))
+(: append_pat (-> Pattern Pattern Pattern))
+(: do-conjunct (-> SpaceType SpaceType Pattern Number Deb Pattern))
+(: formatter (-> SpaceType SpaceType SpaceType Any))
+;===========================================
+
+
  ; /**
  ;  * Given cnjtion and pattern, consider all possible connections
  ;  * (a.k.a linkages) and expand cnjtion accordingly. For instance if

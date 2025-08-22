@@ -12,7 +12,7 @@
 
 ;; Type definition for -> to prevent early reduction
 ;; of the conclusions before matching the correct premises.
-(: -> (-> Atom Atom Type))
+; (: -> (-> Atom Atom Type))
 
 ;;create working space for db and kbs
 !(bind! &freq-kb (new-space)) 
@@ -20,6 +20,12 @@
 !(bind! &surp-kb  (new-space)) 
 !(bind! &res (new-space))
 
+
+(: clean-atomspaces (-> SpaceType SpaceType SpaceType Any))
+(: init-miner (-> SpaceType SpaceType SpaceType Number Any Number Bool Any))
+(: get-patterns (-> SpaceType Any))
+(: mine-surp (-> SpaceType SpaceType Any Any))
+(: pattern-miner (-> SpaceType SpaceType SpaceType Number Number Any Number Bool Any))
 
 
 -----------------------------------------------------------------------------

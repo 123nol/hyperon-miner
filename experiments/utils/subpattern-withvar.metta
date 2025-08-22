@@ -1,13 +1,4 @@
-; (=(is-pattern $expr) (
-;     collapse(
-;  or (unify $expr ($link $x $y) (
-;        and (is-symbol $link) (
-;         or (or (is-variable $x) (is-expression $x))
-;              (or (is-variable $y) (is-expression $y)))) False)
-;     (unify $expr ($link $x) 
-;        (and (is-symbol $link) 
-;         (or (is-variable $x) 
-;             (is-expression $x))) False ) )))
+
 (=(checkIntersection $var $set) 
     (not (== ((intersection-atom ($var) $set)) (())))) 
 
@@ -48,6 +39,7 @@
 
 (=(checkPat $x)(if (== (size-atom $x) 1) True (if (==( let $hell (car-atom $x) (get-metatype $hell)) Symbol) True False)))
 
+(: connected-subpatterns-with-var (-> (BList Pattern) Any (BList Pattern)))
  (=(connected-subpatterns-with-var $partition $var)
 
 (collapse (rmvPar (process-pattern (superpose $partition ) $var))))
@@ -71,12 +63,15 @@
 
 (=(get-variables-step $lst $acc) (if  (== $lst ()) $acc (let* ((($head $tail) (decons-atom $lst))) (if (== ((intersection-atom ($head) $acc)) (())) (get-variables-step $tail (cons-atom $head $acc)) (get-variables-step $tail $acc))) ))
 
+(:get-variables (-> Pattern Any))
 (=(get-variables $conjunct) (let $lst (collapse (let $a (car-atom $conjunct) (if (not (== $a ,)) (get-variables-helper $conjunct )(let $b (cdr-atom $conjunct) (get-variables-helper (superpose $b)))))) (get-variables-step $lst ())) )
 
 
 
 ;========================================================================================================
 ;a function that returns variables that appeear in more than one subpattern in a partiton, and also works with Inheritance links with any number of nodes
+
+; (:joint-vars (BList Pattern) Any Any)
 
 (=(joint-vars $partition $uniqueVars) (collapse (retJointvar $partition (superpose $uniqueVars))))
 

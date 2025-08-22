@@ -1,4 +1,18 @@
 
+
+;;==========================================================
+;type definitions
+
+; (: pro_prob_without_joint (-> SpaceType (BList Pattern) TruthValue))
+; (: estimate_v_xi (-> SpaceType (List Pattern) Number))
+; (: inner_temp (-> SpaceType (BList Pattern) (List Pattern) Number Any (List Number)))
+; (: eq-prob (-> SpaceType Number (BList Pattern) (BList Pattern) Number Number Any Number Number))
+; (: prob-with-joint (-> SpaceType Number (BList Pattern) Any Number Number))
+; (: ji-est-tv (-> SpaceType Number Pattern (PList Pattern) (List TruthValue)))
+
+(: do-ji-tv-est (-> SpaceType Pattern Any TruthValue))
+;;=======================================================================
+
 ;; =============================================================================
 ;; Function: pro_prob_without_joint
 ;; -----------------------------------------------------------------------------
@@ -148,6 +162,7 @@
 (=(eq-prob $db $db_size $original $copy $i $count $var $prob) (
     if (> $count 1) (
           let* (($tail (cdr-atom $copy))
+         
         ($compJ (car-atom $tail))
         ($most_spec  (let $result (inner_temp $db $original $compJ $i $var) (max $result) ))
        ($M_xj (if (<= $most_spec 0) $db_size $most_spec))

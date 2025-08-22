@@ -5,6 +5,7 @@
 ! (import! &self experiments:utils:beta-dist)
 ! (import! &self experiments:utils:TruthValue)
 ! (import! &self experiments:utils:constants)
+! (import! &self experiments:utils:customTypes)
 
 
 ;; =============================================================================

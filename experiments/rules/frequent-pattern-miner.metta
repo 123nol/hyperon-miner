@@ -6,6 +6,7 @@
 ! (import! &self hyperon-miner:experiments:candidate-patterns)
 ! (import! &self hyperon-miner:experiments:conjunction-expansion)
 ! (import! &self hyperon-miner:experiments:utils:common-utils)
+
 ; ! (import! &self hyperon-miner:experiments:utils:variable-combinations)
 ! (bind! &kb (new-space))
 ! (bind! &dbspace (new-space))
@@ -32,6 +33,7 @@
     ;         3:Create an Abstract pattern using the links and variables
     ;         4:Calculate the support for the Abstract patterns and store the ones satisfy the minimum support in a space
 
+(: abstract-pattern (-> SpaceType Number SpaceType Any))
 (= (abstract-pattern $dbspace $minsup $aptrnspace)
             (let* (
                     ($linkunique (unique (match $dbspace ($link $x $y) $link)))
@@ -145,7 +147,7 @@
                         ; 4: expand the conjunctions of the candidate patterns and store them in a space with their support
                         ; 5: format the patterns and add them to the knowledge base with their support
 
-
+(: frequency-pattern-miner (-> SpaceType SpaceType SpaceType SpaceType SpaceType SpaceType Number Number Any))
 (= (frequency-pattern-miner $kb $dbspace $specspace $cndpspace $aptrnspace $conjspace $minsup $depth)
     (superpose (
             (abstract-pattern $dbspace $minsup $aptrnspace) ; prevent patterns that dont have a support from being speciallized
@@ -164,7 +166,7 @@
 
 
 ! (frequency-pattern-miner &kb &dbspace &specspace &cndpspace &aptrnspace &conjspace 3 0)
-! (match &kb $pattern $pattern)
+; ! (match &kb $pattern $pattern)
 ; ! (match &db (, (, (Inheritance $x man) (Inheritance $x ugly)) (Inheritance $x sodaDrinker)) (, (, (Inheritance $x man) (Inheritance $x ugly)) (Inheritance $x sodaDrinker)))
 ; !(checker &db (, (, (Inheritance $x man) (Inheritance $x ugly)) (Inheritance $x sodaDrinker)) 2)
 ; !(match &cndpspace (CandidatePattern $pattern) (do-conjunct &dbspace &cndpspace (replacev $pattern) 2 (fromNumber 0)))

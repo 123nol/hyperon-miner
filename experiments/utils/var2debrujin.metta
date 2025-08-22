@@ -101,7 +101,7 @@
    )
 )
 
-
+(: pattern2debruijn (-> Pattern Pattern))
 (= (pattern2debruijn $pattern)
    (if (== (car-atom $pattern) ,)
       (conjunct-pattern2debruijn $pattern ())

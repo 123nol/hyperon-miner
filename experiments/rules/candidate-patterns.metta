@@ -12,6 +12,7 @@
 ; 2. calculate the support of the pattern
 ; 3. store as a candidate if the support is greater than the minimum support
 
+(:candidatePattern (-> SpaceType SpaceType Number SpaceType Any))
 
 ;get candidate patterns based on theri support
 (= (candidatePattern $dbspace $spezspace $minsup $cndpspace)

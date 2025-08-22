@@ -1,5 +1,17 @@
 
 
+;types
+; (: add-subpatterns (-> (BList Pattern) SpaceType Any))
+; (: get-subpatterns (-> Pattern SpaceType (List Pattern)))
+; (: joint-variables (-> Any (List Pattern) Any))
+; (: mk-unique (-> Any Any))
+; (: get-unique-vars (-> Pattern Any))
+; ; (: joint-variables-init (-> Pattern (BList Pattern) Any))
+; ; (: emp_tv_mem (-> (BList Pattern) SpaceType (List TruthValue)))
+; ; (: avrg_tv (-> (List TruthValue) TruthValue))
+; (: is_equivalent (-> Pattern Pattern Any Bool))
+; (: dst_from_interval (-> Number Number Number Number))
+
 ;;;;;;;;;;;;;;;;;;;;
 ;; Surprisingness ;;
 ;;;;;;;;;;;;;;;;;;;;

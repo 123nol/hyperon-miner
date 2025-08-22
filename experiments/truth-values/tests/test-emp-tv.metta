@@ -12,6 +12,7 @@
 ! (import! &self experiments:utils:gen_partition)
 ! (import! &self experiments:truth-values:est-tv)
 ! (import! &self experiments:truth-values:emp-tv)
+! (import! &self experiments:utils:customTypes)
 ! (import! &kb experiments:data:ugly_man_sodaDrinker)
 
 
@@ -50,13 +51,15 @@
 ;; =============================================================================
 !(assertEqual (sup (Inheritance $x $y) (get-space)) 7)
 
+; !(m)
+
 ;; =============================================================================
 ;; Test: Universe Counting
 ;; -----------------------------------------------------------------------------
 ;; Verifies counting of all Inheritance relationships regardless of arguments
 ;; Expected: 8 total Inheritance relations
 ;; =============================================================================
-!(assertEqual (universe-count (Inheritance $x) (get-space)) 8)
+!(assertEqual (universe-count (Inheritance $x ) (get-space)) 8)
 
 ;; =============================================================================
 ;; Test: Empirical Truth Value Calculation
